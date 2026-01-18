@@ -111,6 +111,7 @@
     git
     gh
     wget
+    discord
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
