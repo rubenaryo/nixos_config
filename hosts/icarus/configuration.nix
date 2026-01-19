@@ -117,7 +117,13 @@
     };
   };
 
+  services.emacs = 
+  {
+    enable = true;
+  };
+
   environment.shellAliases = {
+    emacs = "emacsclient -c -n -a \"\"";
     nrs = "sudo nixos-rebuild switch --profile-name 'main' --flake .#icarus";
     nrt = "sudo nixos-rebuild test --profile-name 'main' --flake .#icarus";
     gc3 = "sudo nixos-rebuild --delete-generations +3 && sudo nix store gc";
