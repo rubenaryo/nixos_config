@@ -110,7 +110,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     zsh
-    alacritty
     neovim
     emacs 
     git
