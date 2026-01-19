@@ -92,14 +92,16 @@
   users.users.kaiyen = {
     isNormalUser = true;
     description = "kaiyen";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
     ];
   };
 
-  # Install firefox.
+  # Core programs
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -107,6 +109,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    zsh
+    alacritty
+    neovim
     emacs 
     git
     gh
