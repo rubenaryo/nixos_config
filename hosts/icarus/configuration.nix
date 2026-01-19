@@ -107,7 +107,21 @@
 
   # Core programs
   programs.firefox.enable = true;
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      # Choose a theme that supports colors, e.g., agnoster, powerlevel10k
+      theme = "agnoster"; # Or "powerlevel10k"
+      plugins = [ "git" ];
+    };
+  };
+
+  environment.shellAliases = {
+    nrs = "sudo nixos-rebuild switch --profile-name 'main' --flake .#icarus";
+    nrt = "sudo nixos-rebuild test --profile-name 'main' --flake .#icarus";
+    gc3 = "sudo nixos-rebuild --delete-generations +3 && sudo nix store gc";
+  };
 
   virtualisation.docker = {
     enable = true;
@@ -132,6 +146,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     zsh
+    vim
     neovim
     emacs 
     git
