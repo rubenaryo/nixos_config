@@ -120,6 +120,7 @@
   services.emacs = 
   {
     enable = true;
+    package = pkgs.emacs-pgtk;  
   };
 
   environment.shellAliases = {
@@ -154,7 +155,7 @@
     zsh
     vim
     neovim
-    emacs 
+    emacs-pgtk 
     git
     gh
     wget
