@@ -6,8 +6,12 @@
 
   programs.git = {
     enable = true;
-    userName = "rubenaryo";
-    userEmail = "rubeny484@gmail.com";
+    settings = {
+      user = {
+        name = "rubenaryo";
+        email = "rubeny484@gmail.com";
+      };
+    };
   };
 
   programs.gh = {
