@@ -35,6 +35,12 @@
   networking.networkmanager.enable = true;
 
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages = with pkgs; [
+    vulkan-loader
+    vulkan-tools
+  ];
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;  # see the note above
 
@@ -93,7 +99,7 @@
     isNormalUser = true;
     description = "kaiyen";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -102,6 +108,22 @@
   # Core programs
   programs.firefox.enable = true;
   programs.zsh.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    # Customize Docker daemon settings using the daemon.settings option
+    daemon.settings = {
+      dns = [ "1.1.1.1" "8.8.8.8" ];
+      log-driver = "journald";
+      registry-mirrors = [ "https://mirror.gcr.io" ];
+      storage-driver = "overlay2";
+    };
+    # Use the rootless mode - run Docker daemon as non-root user
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -116,6 +138,8 @@
     gh
     wget
     discord
+    steam
+    mesa
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
