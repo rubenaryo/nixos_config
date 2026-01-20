@@ -43,7 +43,12 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;  # see the note above
+  hardware.nvidia.modesetting.enable = true;
 
+  boot.extraModprobeConfig = ''
+  options nvidia NVreg_PreserveVideoMemoryAllocations=1
+'';
+  
   # Set your time zone.
   time.timeZone = "America/New_York";
 
