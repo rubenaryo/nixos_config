@@ -149,6 +149,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  environment.variables = {
+    CC = "${pkgs.gcc}/bin/gcc";
+    CXX = "${pkgs.gcc}/bin/g++";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -162,6 +167,10 @@
     discord
     steam
     mesa
+    libgcc
+    gnumake
+    cmake
+    pkgs.clang-tools
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
