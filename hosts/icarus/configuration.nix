@@ -171,6 +171,8 @@
     gnumake
     cmake
     pkgs.clang-tools
+    man-pages
+    glibc.dev
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
