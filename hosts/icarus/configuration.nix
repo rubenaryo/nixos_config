@@ -165,6 +165,7 @@
     zsh
     vim
     neovim
+    python315
     emacs-pgtk 
     git
     gh
@@ -179,6 +180,9 @@
     gdb
     man-pages
     glibc.dev
+    wmctrl
+    libtool
+    pkgs.emacsPackages.vterm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

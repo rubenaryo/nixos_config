@@ -26,7 +26,7 @@
   # Install JetBrains Mono font
   home.packages = with pkgs; [
     jetbrains-mono
-    pkgs.neofetch 
+    pkgs.neofetch
   ];
 
   # Enable fontconfig for user fonts
