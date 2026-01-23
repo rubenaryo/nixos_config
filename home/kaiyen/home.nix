@@ -27,6 +27,7 @@
   home.packages = with pkgs; [
     jetbrains-mono
     pkgs.neofetch
+    pkgs.btop-cuda
   ];
 
   # Enable fontconfig for user fonts
