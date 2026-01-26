@@ -28,6 +28,7 @@
     jetbrains-mono
     pkgs.neofetch
     pkgs.btop-cuda
+    pkgs.unityhub
   ];
 
   # Enable fontconfig for user fonts

@@ -177,6 +177,7 @@
     gnumake
     cmake
     pkgs.clang-tools
+    
     gdb
     man-pages
     glibc.dev
