@@ -29,6 +29,7 @@
     pkgs.neofetch
     pkgs.btop-cuda
     pkgs.unityhub
+    pkgs.vesktop
   ];
 
   # Enable fontconfig for user fonts

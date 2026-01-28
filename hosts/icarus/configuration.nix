@@ -122,6 +122,11 @@
     };
   };
 
+  programs.rider = {
+    enable = true;
+    package = pkgs.jetbrains.rider;
+  };
+
   services.emacs = 
   {
     enable = true;
@@ -184,6 +189,7 @@
     wmctrl
     libtool
     pkgs.emacsPackages.vterm
+    pkgs.jetbrains.rider
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
