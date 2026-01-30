@@ -26,7 +26,7 @@
     "1.1.1.1"   # Cloudflare
     "8.8.8.8"   # Google
   ];
-
+  
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -122,11 +122,6 @@
     };
   };
 
-  programs.rider = {
-    enable = true;
-    package = pkgs.jetbrains.rider;
-  };
-
   services.emacs = 
   {
     enable = true;
@@ -181,6 +176,7 @@
     libgcc
     gnumake
     cmake
+    pkgs.clang
     pkgs.clang-tools
     
     gdb
@@ -189,7 +185,6 @@
     wmctrl
     libtool
     pkgs.emacsPackages.vterm
-    pkgs.jetbrains.rider
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
