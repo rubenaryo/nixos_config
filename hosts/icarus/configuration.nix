@@ -217,4 +217,9 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
+  nix.gc = {
+    automatic = true;        # enables automatic garbage collection
+    dates = "daily";         # or "weekly", depending on preference
+    options = "--delete-older-than 3d"; # removes store paths older than 7 days
+  };
 }
