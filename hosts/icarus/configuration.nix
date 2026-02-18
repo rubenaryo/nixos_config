@@ -44,6 +44,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;  # see the note above
   hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
 
   boot.extraModprobeConfig = ''
   options nvidia NVreg_PreserveVideoMemoryAllocations=1
@@ -178,6 +179,10 @@
     cmake
     pkgs.clang
     pkgs.clang-tools
+    pkgs.perf
+    pkgs.perf-tools
+    cudatoolkit
+    cudaPackages.cudnn
     
     gdb
     man-pages
@@ -207,6 +212,15 @@
   # networking.firewall.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # For CUDA Binary Cache
+  nix.settings.substituters = [
+    "https://cache.nixos-cuda.org"
+  ];
+  
+  nix.settings.trusted-public-keys = [
+    "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+  ];
 
 
   # This value determines the NixOS release from which the default
