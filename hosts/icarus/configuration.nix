@@ -11,8 +11,14 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev"; # for UEFI systems
+    efiSupport = true;
+    useOSProber = true;
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -174,6 +180,9 @@
     discord
     steam
     mesa
+    glew
+    glfw
+    pkg-config
     libgcc
     gnumake
     cmake
