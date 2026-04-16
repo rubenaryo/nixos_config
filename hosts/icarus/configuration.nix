@@ -129,6 +129,15 @@
     };
   };
 
+  programs.git = {
+    enable = true;
+    config = {
+      merge = {
+        tool = "meld";
+      };
+    };
+  };
+
   services.emacs = 
   {
     enable = true;
