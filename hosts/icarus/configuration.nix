@@ -199,6 +199,7 @@
     wmctrl
     libtool
     pkgs.emacsPackages.vterm
+    meld
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
