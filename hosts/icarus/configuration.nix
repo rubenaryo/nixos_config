@@ -25,13 +25,6 @@
 
   networking.hostName = "icarus";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Use static DNS only, ignore router/DHCP
-  networking.resolvconf.enable = false;
-  networking.nameservers = [
-    "1.1.1.1"   # Cloudflare
-    "8.8.8.8"   # Google
-  ];
   
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -39,6 +32,22 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Disable NetworkManager's internal DNS resolution
+  networking.networkmanager.dns = "none";
+
+  # These options are unnecessary when managing DNS ourselves
+  networking.useDHCP = false;
+  networking.dhcpcd.enable = false;
+  networking.networkmanager.dhcp = "dhcpcd";
+
+  # Configure DNS servers manually
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+    "8.8.8.8"
+    "8.8.4.4"
+  ];
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
