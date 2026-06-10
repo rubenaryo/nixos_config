@@ -49,6 +49,9 @@
     "8.8.4.4"
   ];
 
+  # Allows Claude Code to build
+ # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "claude-code" ];
+
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages = with pkgs; [
@@ -210,7 +213,8 @@
     pkgs.perf-tools
     cudatoolkit
     cudaPackages.cudnn
-    
+
+    claude-code
     gdb
     man-pages
     glibc.dev
