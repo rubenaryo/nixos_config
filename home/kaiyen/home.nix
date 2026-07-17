@@ -29,10 +29,8 @@
     noto-fonts-cjk-sans
     pkgs.neofetch
     pkgs.btop-cuda
-    pkgs.unityhub
     pkgs.vesktop
     pkgs.gamemode
-    
   ];
 
   # Enable fontconfig for user fonts

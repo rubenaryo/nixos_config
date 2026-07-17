@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -198,7 +198,6 @@
     git
     gh
     wget
-    discord
     steam
     mesa
     glew
@@ -214,6 +213,7 @@
     cudatoolkit
     cudaPackages.cudnn
 
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     claude-code
     gdb
     man-pages

@@ -7,9 +7,13 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, zen-browser, ... }@inputs:
   {
     nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -26,6 +30,8 @@
             import ./home/kaiyen/home.nix;
         }
       ];
+
+      specialArgs = {inherit inputs;};
     };
   };
 }
