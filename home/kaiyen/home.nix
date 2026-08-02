@@ -31,6 +31,7 @@
     pkgs.btop-cuda
     pkgs.vesktop
     pkgs.gamemode
+    prismlauncher
   ];
 
   # Enable fontconfig for user fonts
