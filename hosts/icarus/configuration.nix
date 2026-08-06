@@ -21,7 +21,7 @@
   };
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "icarus";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -161,22 +161,6 @@
     nrs = "sudo nixos-rebuild switch --profile-name 'main' --flake .#icarus";
     nrt = "sudo nixos-rebuild test --profile-name 'main' --flake .#icarus";
     gc3 = "sudo nixos-rebuild --delete-generations +3 && sudo nix store gc";
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    # Customize Docker daemon settings using the daemon.settings option
-    daemon.settings = {
-      dns = [ "1.1.1.1" "8.8.8.8" ];
-      log-driver = "journald";
-      registry-mirrors = [ "https://mirror.gcr.io" ];
-      storage-driver = "overlay2";
-    };
-    # Use the rootless mode - run Docker daemon as non-root user
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
   };
 
   # Allow unfree packages

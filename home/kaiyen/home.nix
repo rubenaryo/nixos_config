@@ -32,6 +32,7 @@
     pkgs.vesktop
     pkgs.gamemode
     prismlauncher
+    pkgs.jdk25
   ];
 
   # Enable fontconfig for user fonts
